@@ -1,0 +1,89 @@
+<html>
+   <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <title> Home</title>
+       <link href= "/styles/style.css" rel= "stylesheet" type="text/css"/>
+   </head> 
+   <body>
+     <a class="logo" href="/"> <img src="/images/Logo.png"/> </a> 
+
+ <!--Code for Navigation Bar-->
+ <div id= "nav">
+    <div class="topmenu">
+            
+            <a href="/about"> About Us</a>
+            <a href="/contact">Contact Us</a>
+       
+       
+        <div class="dropdown">
+        <a class="dropa" href="#">Courses
+            <i class="fa fa-caret-down"></i>
+        </a>
+        <div class= dropdownlist>
+            <ul>
+                <li><a href="/coursesEIC"> School of Engineering and Information Sciences </a></li>
+
+            </ul>
+        </div>
+        </div>
+        <a href="/guest">Guest Book</a>  
+        <a href="/faqs">FAQ's</a> 
+        {% if session ['logged_in']== True %}
+        <a href="/logout">Logout</a>
+        {% else %}
+        <a href="/login">Login/Sign Up</a> 
+        {% endif %}
+      <a class="loginname">
+        {% for entry1 in rv %}
+            Hi {{entry1 [0]}}
+           {% endfor %}
+    </a>
+        <a href="javascript:void(0);" class="icon" onclick="resp()"> <i class="fa fa-bars"></i>  </a> 
+    </div> 
+</div>
+   <!--End of Navigation Bar-->
+   <script>
+       function resp() {
+    var x = document.getElementById("nav");
+    if (x.className === "topmenu") {
+        x.className += " responsive";
+    } else {
+        x.className = "topmenu";
+    }
+}
+   </script>
+
+       <div class="maintxt">
+          
+           <h1>WELCOME TO STUBOOKS
+           {% for entry1 in rv %}
+           , {{entry1 [0]}}
+           {% endfor %}
+           </h1>
+       </div>
+       <br>
+
+<div class="trending">
+    <h2>Book of the Month:</h2>
+    <br>
+
+            {% for entry in entries %}
+        
+                {{ entry[1] }} 
+                <br>
+            
+                <a href="/stubooks/book.html?id={{entry[0]}}">
+                   <div class="column"><img src='/images/{{entry[0]}}.jpg'></div>
+                </a>
+                
+                </div>
+            
+            {% endfor %}
+
+
+
+
+    
+    </body>
+</html>

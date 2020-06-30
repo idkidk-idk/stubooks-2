@@ -1,0 +1,104 @@
+<html>
+   <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <title> StuBooks </title>
+       <link href= "/styles/style.css" rel= "stylesheet" type="text/css"/>
+
+    </head>
+   <body>
+     <a class="logo" href="/"> <img src="/images/Logo.png"/> </a>
+ <!--Code for Navigation Bar-->
+ <div id= "nav">
+        <div class="topmenu">
+
+                <a href="/about"> About Us</a>
+                <a href="/contact">Contact Us</a>
+
+
+            <div class="dropdown">
+            <a class="dropa" href="#">Courses
+                <i class="fa fa-caret-down"></i>
+            </a>
+            <div class= dropdownlist>
+                <ul>
+                    <li><a href="/coursesEIC"> School of Engineering and Information Sciences </a></li>
+
+                </ul>
+            </div>
+            </div>
+            <a href="/guest">Guest Book</a>
+            <a href="/faqs">FAQ's</a>
+            {% if session ['logged_in']== True %}
+            <a href="/logout">Logout</a>
+            {% else %}
+            <a href="/login">Login/Sign Up</a>
+            {% endif %}
+          <a class="loginname">
+            {% for entry1 in rv %}
+                Hi {{entry1 [0]}}
+               {% endfor %}
+        </a>
+            <a href="javascript:void(0);" class="icon" onclick="resp()"> <i class="fa fa-bars"></i>  </a>
+        </div>
+    </div>
+
+   <script>
+       function resp() {
+    var x = document.getElementById("nav");
+    if (x.className === "topmenu") {
+        x.className += " responsive";
+    } else {
+        x.className = "topmenu";
+    }
+}
+   </script>
+
+
+<div class="text">
+            Reviews from <a href="https://www.goodreads.com/">GoodReads</a> :
+    </div>
+     <div class="textbox">
+     {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="text">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+     {% endwith %}
+     </div>
+
+ {% for entry in pagecontent %}
+    <div class="textbox">
+
+
+        <div class="review">
+        <br>
+            <p class="date">
+            {{ entry [3] }}
+        </p>
+        <p>
+            <img class="reviewer" src="{{ entry [1] }}">
+        </p>
+
+        <p class="name">
+            {{ entry [0] }} says,
+        </p>
+
+        <p class="comments">
+           " {{ entry [2] }} "
+        </p>
+
+        <p class="rating">
+             Rating:
+            {{ entry [4] }}
+        </p>
+
+
+        </div>
+    </div>
+{% endfor %}
+   </body>
+</html>

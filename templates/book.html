@@ -1,0 +1,218 @@
+<html>
+   <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <title> StuBooks </title>
+       <link href= "/styles/style.css" rel= "stylesheet" type="text/css"/>
+      
+    </head> 
+   <body>
+     <a class="logo" href="/"> <img src="/images/Logo.png"/> </a> 
+ <!--Code for Navigation Bar-->
+ <div id= "nav">
+        <div class="topmenu">
+                
+                <a href="/about"> About Us</a>
+                <a href="/contact">Contact Us</a>
+           
+           
+            <div class="dropdown">
+            <a class="dropa" href="#">Courses
+                <i class="fa fa-caret-down"></i>
+            </a>
+            <div class= dropdownlist>
+                <ul>
+                    <li><a href="/coursesEIC"> School of Engineering and Information Sciences </a></li>
+    
+                </ul>
+            </div>
+            </div>
+            <a href="/guest">Guest Book</a>  
+            <a href="/faqs">FAQ's</a> 
+            {% if session ['logged_in']== True %}
+            <a href="/logout">Logout</a>
+            {% else %}
+            <a href="/login">Login/Sign Up</a> 
+            {% endif %}
+          <a class="loginname">
+            {% for entry1 in rv %}
+                Hi {{entry1 [0]}}
+               {% endfor %}
+        </a>
+            <a href="javascript:void(0);" class="icon" onclick="resp()"> <i class="fa fa-bars"></i>  </a> 
+        </div> 
+    </div>
+  
+   <script>
+       function resp() {
+    var x = document.getElementById("nav");
+    if (x.className === "topmenu") {
+        x.className += " responsive";
+    } else {
+        x.className = "topmenu";
+    }
+}
+   </script>
+    <!--End of Navigation Bar-->
+
+   <!--start of side nav-
+<div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <p><a href="is_research">Information Systems Research</a></p>
+        <p><a href="analysis_desn">IS Analysis and Design</a></p>
+        <p><a href="decision_ss">Decision Support Systems</a></p>
+        <p><a href="db_design">Database Design</a></p>
+        <p><a href="coursesEIC">Go to all Courses</a> </p>
+      </div>
+
+      <script>
+            function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+              document.getElementById("main").style.marginLeft = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+              document.getElementById("main").style.marginLeft= "0";
+            }
+            </script>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+
+<!--end of side bar-->
+<div id="main">
+
+
+
+<div class="textbox">
+
+        {% for entry in entries %}
+     <p class=" text">
+            <a href="/{{entry [0] }}"> Check out more reviews from GoodReads!</a>
+        </p>
+
+    <p class="bookname">
+            {{ entry[1] }}
+            <br>
+</p>
+    <p class="authorname">
+        By
+    {{entry[4]}}
+    </p>
+</div>
+    <p>
+    <img class="bookimage" src='/images/{{entry[0]}}.jpg'>
+    </p>
+<div class="bookinfo">
+    <p class="booktype"> 
+           <u>Book Type: {{entry[2]}}</u>
+    </p>
+<p class="publink">
+    <br>
+            Published by:
+         {{entry[5]}}, 
+         <br>
+                on 
+  {{entry[3]}}
+</p>
+<p class="publink">
+     <br>   Want to have a look? Get access to the online book by clicking  <a href=" {{entry[6]}} ">here.</a>
+</p>
+
+        {% endfor %}
+
+
+</div>
+
+<div class="text">
+        Leave a Comment:
+        (P.S: Your comment will only register if you are logged in! To login, <a href="/login">Click here</a>)
+</div>
+
+<div class="textbox">
+ <form class="feedback" name="comments" action="" method="post" >
+    
+     <br>
+    Comment:
+    <br>
+    <textarea rows="6" cols="40" required name="comments" placeholder="Text here.."></textarea>
+    <br>
+    Rate this Book:
+    <br>
+    <div class="rate">
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1" title="text">1 star</label>
+    </div>
+
+       
+<p>
+    <button type="submit" value="Submit">Leave comment</button>
+
+</form>
+</div>
+
+    <div class="like-content">
+        <form name="like" action="" method="POST">
+        <button type="submit" class="btn-secondary like-review" name="like" value=1>
+        <i class="fa fa-heart" aria-hidden="true"></i> Like
+        </button> 
+        </form> 
+    </div>
+    <div class="text">
+            Comments from Peer users:
+    </div>
+
+    <div class="textbox">
+        
+        {% for entry1 in passcomments %}
+
+        
+        <br>
+        <p class="name">
+            {{ entry1 [0] }} says,
+        </p>
+       
+        <p class="comments">
+           " {{ entry1 [1] }} "
+        </p>
+
+        <p class="rating">
+             Rating:
+            {{ entry1 [2] }}/5
+        </p>
+         {% endfor %}
+    </div>
+
+
+
+
+  <script>
+  
+  $(function(){
+	$(document).one('click', '.like-review', function(e) {
+        if($(this).children('.fa-heart').hasClass('animate-like')){
+            $(this).children('.fa-heart').removeClass('animate-like');
+        }
+        else{
+            $(this).html('<i class="fa fa-heart" aria-hidden="true"></i> You liked this');
+		$(this).children('.fa-heart').addClass('animate-like');
+        }
+		
+	});
+});
+  </script>
+
+  </div> <!--end of main div-->
+
+  </body>
+  </html>
+

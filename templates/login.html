@@ -1,0 +1,118 @@
+
+<html>
+   <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <title> Login</title>
+       <link href= "/styles/style.css" rel= "stylesheet" type="text/css"/>
+   </head> 
+   <body>
+     <a class="logo" href="/"> <img src="/images/Logo.png"/> </a> 
+
+       <!--Code for Navigation Bar-->
+       <div id= "nav">
+            <div class="topmenu">
+                    
+                    <a href="/about"> About Us</a>
+                    <a href="/contact">Contact Us</a>
+               
+               
+                <div class="dropdown">
+                <a class="dropa" href="#">Courses
+                    <i class="fa fa-caret-down"></i>
+                </a>
+                <div class= dropdownlist>
+                    <ul>
+                        <li><a href="/coursesEIC"> School of Engineering and Information Sciences </a></li>
+        
+                    </ul>
+                </div>
+                </div>
+                <a href="/guest">Guest Book</a>  
+                <a href="/faqs">FAQ's</a> 
+                {% if session ['logged_in']== True %}
+                <a href="/logout">Logout</a>
+                {% else %}
+                <a href="/login">Login/Sign Up</a> 
+                {% endif %}
+              <a class="loginname">
+                {% for entry1 in rv %}
+                    Hi {{entry1 [0]}}
+                   {% endfor %}
+            </a>
+                <a href="javascript:void(0);" class="icon" onclick="resp()"> <i class="fa fa-bars"></i>  </a> 
+            </div> 
+        </div>
+       <!--End of Navigation Bar-->
+
+   <script>
+       function resp() {
+    var x = document.getElementById("nav");
+    if (x.className === "topmenu") {
+        x.className += " responsive";
+    } else {
+        x.className = "topmenu";
+    }
+}
+   </script>
+       <!--End of Navigation Bar-->
+
+       <!--Start of login/singup box code-->
+       <div class= "signup">
+        <div class= "form">
+
+            <form class="register" action="register" method=post>
+
+           <label>First Name</label> <input type="text" placeholder= "Jane" required name="firstname"/>
+           <p> 
+           <label>last Name</label> <input type="text" placeholder= "Doe" required name="lastname"/>
+           <p>
+            <label>Username</label><input type="text" placeholder="janed12" required name="username"/>
+            <label>Email</label><input type= "text" placeholder= "janed123@example.com" required name="email"/>
+            <p>
+            <label>Password</label><input type="password" required name="password" placeholder="password"/>
+            <p>
+            <label>Select your Course</label>
+            <p>
+                <select name="selectcourse">
+                    <option value="C001" selected>Bsc. Information Technology</option>
+                    <option value="C002">Bsc. Business Information Systems</option>
+                    <option value="C003">BA Honours Film</option> 
+                </select>
+            <p>
+            <label>Gender</label>
+            <p>
+                Female <input type="radio" name="gender" value="Female"> 
+            <br>
+                Male <input type="radio" name="gender" value="Male"> 
+            
+            <button type="submit" name="btn" value="signup">Join StuBooks</button>
+            <p class="optionb"> Existing User? <a href="#"> Login</a></p>
+            </form>   
+
+           <form class="login" action="login" method=post>
+                <label>Username</label><input type="text" required name="username" placeholder="janed123"/>
+                <label>Password</label><input type="password" required name="password" placeholder="Password"/>
+                <button type="submit" name="btn" value="signin">Login</button>
+                <p class="optionb"> Not an existing user? <a href="#">Sign Up</a></p>
+           </form>
+
+        </div>
+       </div>
+
+       <script src='https://code.jquery.com/jquery-3.2.1.min.js'>
+       </script>
+
+       <script>
+           $('.optionb a').click(function(){
+            $('form').animate({
+                width:['toggle','swing'],
+                height: ['toggle','swing'],
+                 opacity: "toggle"},"slow");
+           });
+       </script>
+       <!--End of login/signup box code-->
+    
+  </body>
+</html>
+

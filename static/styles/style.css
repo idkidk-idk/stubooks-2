@@ -1,0 +1,640 @@
+body{
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    color: aliceblue;
+    background-image: url("/images/bg.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.maintxt {
+font-size: 50px;
+text-align: center;
+left: 500px;
+top: 200px;
+margin: 5%;
+}
+
+.signup{
+    width: 360px;
+    padding: 10%;
+    margin: auto;
+    font-size: 30px;
+}
+
+.form{
+    margin: auto;
+    position: absolute;
+   z-index: 1;
+   background: ffffff;
+   max-width: 500px ;
+   margin: 0 auto 100px;
+   padding: 45px;
+   text-align: center;
+}
+
+.form input{
+    font-family: monospace;
+    outline: 5;
+    background: #c9473e;
+    width: 100%;
+    border:0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: 50px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.form button{
+    font-family: monospace;
+    padding: 15px;
+    font-size: 42px;
+    cursor: pointer;
+    background: #c9473e;
+
+}
+
+.form label{
+font-family: monospace;
+}
+
+
+.optionb{
+    font-family: monospace;
+    padding: 15px;
+    font-size: 30px;
+    background: #c9473e;
+}
+.form .optionb a{
+    color: ffffff;
+}
+.form button:hover {
+    font-style: oblique;
+    color: white;
+    background: black; 
+    text-transform: uppercase;
+}
+
+.form .register{
+    display: none;
+}
+
+.courseIT {
+    width: 360px;
+    padding: 10%;
+    margin: auto;
+}
+
+.form .modulesIT{
+    display: none;
+}
+
+.form .modulesIT p{
+    font-family: monospace;
+    outline: 5;
+    background: #c9473e;
+    width: 100%;
+    border:0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: 50px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.linkITa, .linkITb, .linkBISa, .linkBISb{
+    font-family: monospace;
+    padding: 15px;
+    font-size: 30px;
+    background: #c9473e;
+}
+
+.form .linkITa a{
+    color: ffffff;
+}
+
+.form .linkITb a{
+    color: ffffff;
+}
+
+.form .linkBISa a{
+    color: ffffff;
+}
+
+.form .linkBISb a{
+    color: ffffff;
+}
+
+
+
+
+.courseBIS {
+    width: 360px;
+    padding: 10%;
+    margin: auto;
+}
+
+.form .modulesBIS{
+    display: none;
+}
+
+.form .modulesBIS p{
+    font-family: monospace;
+    outline: 5;
+    background: #c9473e;
+    width: 100%;
+    border:0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: 50px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.linkBIS{
+    font-family: monospace;
+    padding: 15px;
+    font-size: 30px;
+    background: #c9473e;
+}
+
+.form .linkBIS a{
+    color: ffffff;
+}
+
+.logo img{
+    position: relative;
+    width: 160px;
+    height: auto !important;
+    float: left;
+}
+.topmenu {
+    overflow: hidden;
+    background-color: #c9473e;
+  }
+  
+.topmenu a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    height: 30px;
+   
+  }
+  
+.topmenu a:hover {
+    background-color: black;
+    color: white;
+  }
+  
+.topmenu .icon {
+    display: none;
+  }
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdownlist {
+    display: none;
+    position: absolute;
+    min-width: 150px;
+    top: 50px;
+    left: 450px;
+    z-index: 1;
+}
+
+.dropdownlist a{
+    float: none;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background: #c9473e;
+    color: black;
+}
+
+.dropdownlist ul{
+    list-style-type: none;
+}
+
+.topmenu a:hover, .dropdown:hover .dropa {
+    background-color: black;
+    color: white;
+}
+
+.dropdownlist a:hover {
+    background-color: black;
+    color: white;
+}
+
+ .dropdown:hover  .dropdownlist  {
+    display: block;
+   
+}
+
+  @media screen and (max-width: 800px) {
+    .topmenu a:not(:first-child), .dropdown .dropa {
+        display: none;
+    }
+    .topmenu a.icon {
+      float: right;
+      display: block;
+    }
+   
+  }
+  
+  @media screen and (max-width: 800px) {
+    .topmenu.responsive {
+        position: relative;
+    }
+    .topmenu.responsive .icon {
+        display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topmenu.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+
+    .topmenu.responsive .dropdown {
+        float: none;
+    }
+
+    .topmenu.responsive .dropdownlist {
+        position: relative;
+    }
+
+    .topmenu.responsive .dropdown .dropa {
+        display:block;
+        width: 100%;
+        text-align: left;
+    }
+   
+   }
+
+   *{
+    margin: 0;
+    padding: 0;
+}
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:rgba(60, 216, 227, 0.708);
+}
+.rate:not(:checked) > label:before {
+    content:  '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+
+
+.like-content {
+    display: absolute;
+    width: 100%;
+    margin: 40px 0 0;
+    padding: 40px 0 0;
+   
+
+}
+
+.like-content .btn-secondary {
+    position: absolute ;
+    bottom: 0px;
+    right: 0px;
+	  display: block;
+	  margin: 40px auto 0px;
+    text-align: center;
+    background: #ed2553;
+    border-radius: 3px;
+    box-shadow: 0 10px 20px -8px rgb(240, 75, 113);
+    padding: 10px 17px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    text-decoration: none;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+}
+.like-content .btn-secondary:hover {
+	  transform: translateY(-3px);
+}
+.like-content .btn-secondary .fa {
+	  margin-right: 5px;
+}
+.animate-like {
+	animation-name: likeAnimation;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	animation-duration: 0.65s;
+}
+@keyframes likeAnimation {
+  0%   { transform: scale(30); }
+  100% { transform: scale(1); }
+}
+   
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+.leveltwo li a {
+    position: absolute;
+    margin-top: 10px;
+}
+
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.containerba{
+    position: relative;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+.textbox {
+  margin: 5%;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.8;
+  filter: alpha(opacity=20);
+  font-size: 32px;
+  max-height:350%
+  transform: translateY(150%);
+}
+
+.textbox .text{
+margin: 5%;
+color: #111;
+font-size: 32px;
+}
+
+.textbox ol {
+    margin: 5%;
+color: #111;
+font-size: 32px;
+}
+h1 {
+    left: 50%;
+    top: 300px;
+    margin: 5%;
+}
+ img {
+    position: relative;
+    width: 300px;
+    height: 100 px;
+    float: left;
+}
+
+.trending li {
+    list-style-type: none;
+}
+
+.name {
+margin-left: 3%;
+text-transform: uppercase;
+color: blue;
+transform: translateX(60px);
+}
+
+.textbox .email {
+    margin-left: 3%;
+    font-size: 22px;
+    color: #111;
+    margin-bottom: 1%;
+}
+
+.textbox .comments {
+    margin-left: 5%;
+    font-size: 32px;
+    color: #111;
+    font-style: oblique;
+    transform: translateX(60px);
+}
+
+.textbox .rating {
+    margin-left: 3%;
+    font-size: 32px;
+    color: rgb(35, 210, 178);
+    margin-bottom: 2%;
+    opacity : 1;
+    transform: translateX(60px);
+}
+
+.textbox .date {
+    margin-left: 3%;
+    font-size: 32px;
+    color: rgb(35, 210, 178);
+    margin-bottom: 2%;
+    opacity : 1;
+}
+
+.textbox .reviewer{
+opacity:1;
+transform: translateX(10px);
+}
+
+.text{
+    margin-left: 5%;
+    color: white;
+font-size: 28px;
+}
+
+.feedback  {
+    margin-left: 5%;
+    color: black;
+font-size: 28px;
+}
+
+.feedback button{
+    font-family: monospace;
+    padding: 18px;
+    font-size: 42px;
+    cursor: pointer;
+    background: rgba(7, 243, 247, 0.66);
+    margin: 2%;
+    border-radius: 50%;
+}
+
+.feedback button:hover{
+    font-style: oblique;
+    color: white;
+    background: black; 
+    text-transform: uppercase;
+}
+
+.feedback input, textarea {
+    margin: 1%;
+}
+
+.textbox .bookname {
+    font-size: 50px;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: 1%;
+    color: #111;
+}
+
+.textbox .authorname{
+    font-size: 35px;
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-bottom: 1%;
+    color: #111;
+    font-style: oblique;
+}
+
+.bookinfo {
+    width: 800px;
+    height: 390px;
+      position: relative ;
+      left: 340px;
+    margin: 5%;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=20);
+    font-size: 32px;
+    color: #111;
+}
+
+.bookimage{
+    left:63px;
+}
+
+.booktype{
+    margin-top: 3%;
+    margin-left: 5%;
+    color: rgb(165, 17, 228);
+font-size: 28px;
+text-transform: uppercase;
+font-style: italic;
+
+}
+
+.publink {
+    margin: 2%;
+}
+
+.loginname{
+    position: absolute;
+    right: 0px;
+}
+
+.courseBIS a:link, .courseIT a:link{
+color: aliceblue;
+}
+
+.courseBIS a:visited, .courseIT a:visited{
+color: aliceblue;
+}
+
+.courseBIS a:active, .courseIT a:active{
+color: aqua;
+}
+
+.linkITa a:link, .linkBISa a:link{
+    color: #111;
+}
+
+.linkITa a:visited, .linkBISa a:visited{
+    color: #111;
+}
+
+.linkITb a:link, .linkBISb a:link{
+    color: #111;
+}
+
+.linkITb a:visited, .linkBISb a:visited{
+    color: #111;
+}
+
+.review{
+    width: 1000px;
+    height: 500px;
+}
+

@@ -1,0 +1,136 @@
+<html>
+   <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <title> StuBooks</title>
+       <link href= "/styles/style.css" rel= "stylesheet" type="text/css"/>
+   </head> 
+   <body>
+     <a class="logo" href="/"> <img src="/images/Logo.png"/> </a> 
+ <!--Code for Navigation Bar-->
+ <div id= "nav">
+        <div class="topmenu">
+                
+                <a href="/about"> About Us</a>
+                <a href="/contact">Contact Us</a>
+           
+           
+            <div class="dropdown">
+            <a class="dropa" href="#">Courses
+                <i class="fa fa-caret-down"></i>
+            </a>
+            <div class= dropdownlist>
+                <ul>
+                    <li><a href="/coursesEIC"> School of Engineering and Information Sciences </a></li>
+    
+                </ul>
+            </div>
+            </div>
+            <a href="/guest">Guest Book</a>  
+            <a href="/faqs">FAQ's</a> 
+            {% if session ['logged_in']== True %}
+            <a href="/logout">Logout</a>
+            {% else %}
+            <a href="/login">Login/Sign Up</a> 
+            {% endif %}
+          <a class="loginname">
+            {% for entry1 in rv %}
+                Hi {{entry1 [0]}}
+               {% endfor %}
+        </a>
+            <a href="javascript:void(0);" class="icon" onclick="resp()"> <i class="fa fa-bars"></i>  </a> 
+        </div> 
+    </div>
+  
+   <script>
+       function resp() {
+    var x = document.getElementById("nav");
+    if (x.className === "topmenu") {
+        x.className += " responsive";
+    } else {
+        x.className = "topmenu";
+    }
+}
+   </script>
+ <!--End of Navigation Bar-->
+<!--start of side nav-->
+<div id="mySidenav" class="sidenav">
+    {% for entry1 in entries1 %}
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <p><a href="{{entry1 [0]}}">{{entry1 [1]}}</a></p>
+        
+       
+        {% endfor %}
+        <p><a href="coursesEIC">Go to all Courses</a> </p>
+      </div>
+
+      <script>
+            function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+              document.getElementById("main").style.marginLeft = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+              document.getElementById("main").style.marginLeft= "0";
+            }
+            </script>
+
+<!--end of side bar-->
+
+
+<div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span> 
+        <h1 align="center">Module Books</h1>
+        <br>
+        
+    
+    <div>
+
+            {% for entry in entries %}
+        <div class="containerba">
+                <h2> {{ entry[1] }} </h2>
+                <br>
+                <div class="row">
+                <a href="/stubooks/book.html?id={{entry[0]}}">
+                   <div class="column"><img src='/images/{{entry[0]}}.jpg'></div>
+                </a>
+                </div>
+        </div>
+            {% endfor %}
+
+    </div>
+
+
+
+
+  <!--  <table border=1 class="booktable">
+    {% for entry in entries %}
+
+    <tr>
+        <td>
+            <a href="/stubooks/book.html?id={{entry[0]}}">
+            <img src='/images/{{entry[0]}}.jpg'>
+            </a>
+        </td>
+    </tr>
+    <br>
+    <td>
+       <b> {{ entry[1] }} </b>
+    </td>
+
+    {% endfor %}
+</table> -->
+
+</div> <!--end of main div-->
+
+
+
+
+
+
+  
+    </body>
+</html>
+
+
